@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Response bonus</title></head>
+    <body>
+        <h1>Madhu Babu Arla generates</h1>
+        <button onclick="getx()">Get x</button><br>
+        <div id = "result"> result </div>
+
+
+        <script>
+            function getx(){
+            fetch(`http://127.0.0.1:3001`).then( (res) => {return res.text()}).then((text) => {document.getElementById("result").innerHTML=text})
+        }
+        </script>
+    </body>
+</html>

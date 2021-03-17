@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        Fetch demo
+    </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <h1> Madhu Babu Arla Computes </h1>
+    <input type="number" id="first" name="first">
+    <input type="number" id="second" name="second">
+    <button type="button" id="button" onclick="remotecompute()">Remote Compute</button>
+     <div id="result">Result</div>
+
+</body>
+
+<script>
+    function remotecompute() {
+        var first = document.getElementById("first").value;
+        var second = document.getElementById("second").value;
+        console.log(first)
+        fetch(`http://127.0.0.1:3001/?x=${first}&y=${second}`).then( (resp) => { return resp.text()}) .then (text =>{
+                    console.log(text);
+                    document.getElementById("result").innerHTML = text;
+        }).catch(error =>{
+                    document.getElementById("result").innerHTML=error;
+                })
+            }
+</script>
+
+</html>
